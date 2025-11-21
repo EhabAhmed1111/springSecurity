@@ -18,6 +18,13 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
+/*
+    *this is most used tech*
+session based
+cookie based
+api token
+jwt
+ */
 
     private static final String SECRET_KEY="c1a7a6461e65ce4e8a362126e3d3b80e16bc400dea0a48a801537347fc071327";
 
@@ -76,7 +83,7 @@ public class JwtService {
         return extractClaim(token, Claims::getExpiration);
     }
 
-    //here we hava all claims
+    //here we hava all claims,
     //but we need to get signing key
     private Claims extractAllClaims(String token){
         return Jwts
@@ -88,7 +95,7 @@ public class JwtService {
     }
 
     //here we have signing key
-        private Key getSignKey() {
+    private Key getSignKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         //here because you use this you should use HS256
         return Keys.hmacShaKeyFor(keyBytes);

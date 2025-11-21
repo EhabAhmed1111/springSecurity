@@ -36,7 +36,8 @@ public class User implements UserDetails {
     //this method should return a list of roles
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        /*----- it will return list of permission then ROLE_role(ADMIN) -----*/
+        return role.getAuthorities();
     }
 
     @Override
