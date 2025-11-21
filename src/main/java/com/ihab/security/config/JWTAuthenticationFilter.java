@@ -62,10 +62,11 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
                         null,
                         userDetails.getAuthorities()
                 );
+                //this about details that come from web like ip or session id
                 authToken.setDetails(
                         new WebAuthenticationDetailsSource().buildDetails(request)
                 );
-                SecurityContextHolder.getContext().setAuthentication(authToken);
+                SecurityContextHolder.getContext()  .setAuthentication(authToken);
             }
         }
         //don't forget to call doFilter after each filter executed so it can move to next filter
